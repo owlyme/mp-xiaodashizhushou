@@ -1,0 +1,43 @@
+// weui
+@import "assets/weui/weui.wxss";
+
+// 全局样式
+@import "./assets/scss/_utils";
+@import "assets/scss/iconfont";
+
+.app__inner {
+	font-size: 36px;
+	color: #303133;
+}
+.app__title {
+	font-size: 72px;
+	font-weight: bold;
+}
+.app__bottom {
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.05);
+	width: 100%;
+	box-sizing: border-box;
+	padding: 40px 70px;
+	background: #fff;
+	button {
+		box-shadow: 0px 5px 20px 0px	rgba(3, 101, 200, 0.5);
+	}
+}
+.app__bottom.app__bottom__IPX {
+	padding-bottom: 96px;
+}
+.btn1 {
+	color: #fff;
+	font-size: 54px;
+	background-color: #177ee6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn1 > .icon {
+	font-size: 70px;
+	line-height: 1;
+	margin-right: 23px;
+}

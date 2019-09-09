@@ -1,0 +1,19 @@
+<view class="image-container" hover-class="none" hover-stop-propagation="false">
+	<view class="weui-loadmore loading" wx:if="{{uploadStatus == 'begin'}}">
+		<view class="weui-loading"></view>
+	</view>
+	<text class="iconfont iconxiazaishibai fail" wx:if="{{uploadStatus == 'fail' && !msgBody.source || !msgBody.status}}"
+	bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"
+	></text>
+
+	<image wx:if="{{src}}" hidden="{{loaded}}" src="{{src}}"
+	style="width: {{width}}rpx; height: {{height}}rpx"
+	lazy-load="{{true}}"
+	bindload="imageload"
+	data-src="{{src}}"
+	bindtap="preview" />
+	<view wx:else class="iconfont iconmorentupianccccccpx"></view>
+</view>
+

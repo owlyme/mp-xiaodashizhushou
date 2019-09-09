@@ -1,0 +1,38 @@
+<!--页面描述-->
+<wxs src="../chatList.wxs" module="tools" />
+<view class="scramble" id="scramble">
+	<top mode="easy" backType="back" photo="{{photo}}" chatCountShow="{{true}}" chatCount="{{chatCount}}" catch:back="back"></top>
+	<view class="scramble-content">
+		<view class="scramble-title">
+			抢单池({{store.chatList.scrambleTotal}})
+		</view>
+		<view class="have-data" wx:if="{{store.chatList.scramble.length > 0}}">
+			<view  class="item-list" wx:for="{{store.chatList.scramble}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+				<view class="item-info" data-item="{{item}}" bind:tap="grabScramble" hover-class="active-item" hover-stay-time="{{100}}" data-index="{{index}}">
+					<view class="info-head">
+						<image class="info-img" src="{{item.headImgUrl}}"></image>
+					</view>
+					<view class="info-wrapper">
+						<view class="info-desc">
+							<view class="name">
+								<view class="info-name">{{item.name}}</view>
+								<view class="info-appAccountName">{{item.appAccountName}}</view>
+							</view>
+							<view class="grab-logo">抢</view>
+						</view>
+						<view class="info-content">
+							<view class="info-type-text">
+								<view class="reception" wx:if="{{item.messageBody && item.messageBody.msgType === 'INTELLIGENT_RECEPTION_SYSTEM_MESSAGE'}}">[智能接待]</view>
+								<infoContent class="details" infoType="chatList" color="''" item="{{item}}"></infoContent>
+							</view>
+							<view class="time">
+								<timeFilter createTime="{{item.messageBody.createTime}}"></timeFilter>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<noData wx:else noDataText="暂无待抢单"></noData>
+	</view>
+</view>

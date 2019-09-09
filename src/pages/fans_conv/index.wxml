@@ -1,0 +1,32 @@
+<u-backbar></u-backbar>
+<view class="app track">
+		<view class="app__inner">
+				<view class="u-mt-large app__title">互动统计</view>
+				<view class="app__cont" wx:if="{{dataLoading}}">
+						<view class="u-flex conv-card">
+								<view class="conv-card-item mt80">
+										<view class="conv-card-itemN">{{data.visit}}</view>
+										<view class="conv-card-itemT">来访次数</view>
+								</view>
+								<view class="conv-card-item mt80">
+										<view class="conv-card-itemN">{{data.fansMsg}}</view>
+										<view class="conv-card-itemT">粉丝说话次数</view>
+								</view>
+								<view class="conv-card-item">
+										<view class="conv-card-itemN">{{data.seatKfMsg}}</view>
+										<view class="conv-card-itemT">客服说话次数</view>
+								</view>
+								<view class="conv-card-item">
+										<view class="conv-card-itemN">{{data.convrSeatMass}}</view>
+										<view class="conv-card-itemT">客服强制发送次数</view>
+								</view>
+						</view>
+						<view class="conv-date">
+								<view class="conv-date-txt">首次关注时间：{{data.firstVisitTime}}</view>
+								<view class="conv-date-txt">最近来访时间：{{data.lastVisitTime}}</view>
+								<view class="conv-date-txt">首次说话时间：{{data.firstTalkTime}}</view>
+								<view class="conv-date-txt">最后说话时间：{{data.lastTalkTime}}</view>
+						</view>
+				</view>
+		</view>
+</view>

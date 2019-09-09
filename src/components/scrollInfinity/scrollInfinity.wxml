@@ -1,0 +1,34 @@
+<view class="scroll-infi"
+	>
+	<!-- class="scroll-view {{showloadmore ? 'scroll-upper' : 'scroll-back'}}" -->
+	<!-- class="scroll-view {{refresh ? 'scroll-down' : showloadmore ? 'scroll-upper' : 'scroll-back'}}" -->
+	<view >
+		<slot name="scroll-header"></slot>
+	</view>
+	<view class="scroll-wrapper">
+		<scroll-view scroll-y
+		class="scroll-main"
+		bindscrolltoupper="upper"
+		bindscrolltolower="lower"
+		bindscroll="scroll"
+		enable-back-to-top="true"
+		scroll-into-view="{{toView}}">
+			<view class="scroll-load-refresh {{refresh ? 'scroll-down' : 'scroll-back'}}">
+				<view class="weui-loadmore">
+					<view class="weui-loading"></view>
+					<view class="weui-loadmore__tips">正在刷新</view>
+				</view>
+			</view>
+			<slot></slot>
+			<view class="scroll-load-more {{showloadmore ? 'scroll-upper' : 'scroll-back'}}">
+				<view class="weui-loadmore">
+					<view class="weui-loading"></view>
+					<view class="weui-loadmore__tips">正在加载</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="scroll-footer" style="height: {{footerHeight}}px;">
+			<slot name="scroll-footer"></slot>
+	</view>
+</view>

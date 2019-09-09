@@ -1,0 +1,9 @@
+
+<view class="btn  {{ touchBtn ? 'hoverBtn':'' }} {{ disable ? 'disablestyle': '' }}"
+catch:touchend="handleRecordStop"
+bind:longpress="handleRecordStart"
+catch:touchmove="handleTouchMove"
+catch:touchcancel="handleTouchCancel"
+>
+	{{touchBtn ? '松开 结束' : '按住 说话' }}
+</view>

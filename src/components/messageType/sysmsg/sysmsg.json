@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "infoContent": "../../../pages/chatList/components/infoContent/infoContent",
+    "timeFilter": "../../timeFilter/index"
+  }
+}

@@ -1,0 +1,18 @@
+
+<view class="page-wrap">
+	<top mode="easy" backType="back">我的</top>
+	<view class="map-title">
+		<view class="header">{{title}}</view>
+		<view class="location">{{addr}}</view>
+	</view>
+	<view class="map">
+		<map
+				latitude="{{latitude}}"
+				longitude="{{longitude}}"
+				show-location
+				bindtap="goBigMap"
+				markers="{{markers}}"
+				style="width: 100%; height: 100%;"
+			></map>
+	</view>
+</view>

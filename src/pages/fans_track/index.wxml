@@ -1,0 +1,53 @@
+<wxs src="../../components/wxs/utils.wxs" module="utils" />
+<u-backbar title="{{isVisible ? '粉丝轨迹': ''}}"></u-backbar>
+<view class="app track">
+		<view class="app__inner">
+				<view class="u-mt-large app__title" id="app_title">粉丝轨迹</view>
+				<view class="track-container" wx:if="{{!noData}}">
+						<view class="track-filter-wrapper" style="top: {{topHeight}}px">
+								<view class="dropdown {{dropDownStatus && 'is-actived'}}">
+										<view class="dropdown-label" bindtap="onDropdown">{{dropDownText}}</view>
+										<view class="dropdown-menu">
+												<view class="dropdown-item {{downDownType === 'all' && 'dropdown-item-active'}}" bindtap="onFilterTrack" data-type="all">
+														全部轨迹
+												</view>
+												<view class="dropdown-item {{downDownType === 'wechat' && 'dropdown-item-active'}}" bindtap="onFilterTrack" data-type="wechat">
+														公众号端
+												</view>
+												<view class="dropdown-item {{downDownType === 'web' && 'dropdown-item-active'}}" bindtap="onFilterTrack" data-type="web">
+														网页端
+												</view>
+										</view>
+								</view>
+						</view>
+						<view class="track-wrapper-list" wx:for="{{list}}" wx:key="*this" data-title="{{item[0].createMonth}}">
+								<view class="track-month" style="top: {{topHeight}}px">{{item[0].createMonth}}</view>
+								<view class="track-list">
+										<view class="track-item" wx:for="{{item}}" wx:for-item="track" wx:key="{{track.id}}">
+												<view class="track-day">
+														<view class="track-date-txt">{{track.createDay}}</view>
+												</view>
+												<view class="track-title">{{utils.formatTrackTitle(track.code)}}</view>
+												<view class="track-cont" wx:if="{{track.code === 'LOCATION'}}">
+														<view class="u-overflow">{{track.contextMap.EVENT_LOCATION}}</view>
+														<view class="map-container">
+																<map id="map" longitude="{{track.contextMap.EVENT_LOCATION_LONGITUDE}}" latitude="{{track.contextMap.EVENT_LOCATION_LATITUDE}}" scale="14" show-location style="width: 80%; height: 120px;"></map>
+														</view>
+														<view data-track="{{track}}" bindtap="goBigMap">
+																<view style="color:#409fff; line-height: 30px;">点击查看</view>
+														</view>
+												</view>
+												<view class="track-cont" wx:else>
+														<eventInfo track="{{track}}" />
+												</view>
+												<view class="track-time">{{track.createHour}}</view>
+										</view>
+								</view>
+						</view>
+						<view class="track-filter-more" bindtap="onFilterMore" wx:if="{{downDownType !== 'all' && noMore}}">点击加载更多</view>
+				</view>
+				<view class="track-container" wx:else>
+						<noData noDataText="暂无粉丝轨迹" />
+				</view>
+		</view>
+</view>

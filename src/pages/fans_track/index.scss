@@ -1,0 +1,154 @@
+@import "../../assets/scss/support";
+
+.app__inner {
+	padding: 46px;
+}
+.track-container {
+	margin-top: 79px;
+	position: relative;
+	.track-filter-wrapper {
+		font-size: 42px;
+		color: #303133;
+		position: sticky;
+		z-index: 11;
+		text-align: right;
+		// transform: translateY(100%)
+	}
+	.track-filter-more {
+		text-align: center;
+		line-height: 56px;
+	}
+	.track-month {
+		font-size: 42px;
+		color: #303133;
+		position: sticky;
+		background: #fff;
+		// top: 64PX;
+		z-index: 10;
+	}
+	.track-list {
+		margin-top: 40px;
+		padding-left: 200px;
+	}
+	.track-item {
+		position: relative;
+		padding-bottom: 60px;
+		map {
+			z-index: 1
+		}
+		&::before {
+			position: absolute;
+			top: 1px;
+			left: -125px;
+			content: '';
+			width: 1px;
+			height: 100%;
+			background: #e3e4e6;
+		}
+		&:last-of-type::before {
+			height: 0;
+		}
+		.track-day {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			left: -166px;
+			.track-date-txt {
+				width: 82px;
+				height: 82px;
+				font-size: 54px;
+				background: #409fff;
+				border-radius: 50%;
+				color: #fff;
+				font-size: 33rpx;
+				z-index: 3;
+				text-align: center;
+			}
+			&:before {
+				position: absolute;
+				z-index: 2;
+				content: '';
+				width: 104px;
+				height: 104px;
+				background: #b2d9ff;
+				border-radius: 50%;
+			}
+			&:after {
+				position: absolute;
+				z-index: 1;
+				content: '';
+				width: 132px;
+				height: 132px;
+				background: #e5f2ff;
+				border-radius: 50%;
+			}
+		}
+		.track-title {
+			font-size: 51px;
+			color: #303133;
+		}
+		.track-time {
+			color: #b1b2b3;
+		}
+	}
+}
+.dropdown {
+	display: inline-block;
+	position: relative;
+	&.is-actived {
+		.dropdown-label {
+			&::after {
+				border-color: transparent transparent #7e7f7f;
+				vertical-align: 2PX;
+			}
+		}
+		.dropdown-menu {
+			display: block;
+		}
+	}
+	.dropdown-label {
+		&::after {
+			display: inline-block;
+			content: "";
+			width: 0;
+			height: 0;
+			border: 5PX solid;
+			border-color: #7e7f7f transparent transparent;
+			vertical-align: -2PX;
+			margin-left: 4PX;
+		}
+	}
+	.dropdown-menu {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 44rpx;
+		width: 280px;
+		box-shadow: 0 2PX 6PX 0 rgba(0, 0, 0, 0.35);
+		background: #fff;
+		&::before {
+			position: absolute;
+			top: -4PX;
+			right: 4PX;
+			content: "";
+			width: 0;
+			height: 0;
+			border: 8PX solid;
+			border-color: transparent transparent #fff;
+
+		}
+	}
+	.dropdown-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 96px;
+		&-active {
+			color: #409eff;
+		}
+		&:active {
+			background-color: #f2f4f5;
+		}
+	}
+}

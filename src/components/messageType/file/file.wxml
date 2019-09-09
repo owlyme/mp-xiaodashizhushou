@@ -1,0 +1,20 @@
+<view class="file-container" bindtap="look">
+	<text class="iconfont iconxiazaishibai fail"
+		wx:if="{{uploadStatus == 'fail' && !msgBody.source  || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"></text>
+
+	<view class="file-left">
+		<view class="file-name">
+			{{name}}{{type}}
+		</view>
+		<view class="file-size">
+			{{size}}
+		</view>
+	</view>
+	<view class="">
+		<image class="officeicon" src="{{logoUrl}}"/>
+	</view>
+</view>
+

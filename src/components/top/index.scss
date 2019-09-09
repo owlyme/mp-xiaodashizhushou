@@ -1,0 +1,65 @@
+/* components/top/top.wxss */
+@import '../../assets/scss/iconfont.scss';
+.top {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+	align-items: center;
+	background-color: #fff;
+	// border-bottom: 1px solid #eee;
+}
+.top-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+	left: 0;
+	.chatCount {
+		font-size: 48px;
+		color: #010101;
+		margin-left: 15px;
+		font-weight: bold;
+	}
+}
+.photo {
+  width: 96px;
+  height: 96px;
+	margin-left: 48px;
+	position: relative;
+	.photo-img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+	}
+	.on-line {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 30px;
+		height: 30px;
+		background-color: #09bb07;
+		border-radius: 50%;
+	}
+	.off-line {
+		position: absolute;
+		right: 0;
+		bottom: -2px;
+		color: #979899;
+		font-size: 31px;
+	}
+}
+.back {
+	padding: 48px;
+	font-size: 52px;
+}
+.top-title {
+  width: 100%;
+  text-align: center;
+  font-size: 52px;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+	font-weight: 700;
+}

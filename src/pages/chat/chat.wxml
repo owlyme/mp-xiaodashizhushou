@@ -1,0 +1,95 @@
+<wxs src="../chatList/chatList.wxs" module="tools" />
+<wxs src="../../components/wxs/utils.wxs" module="utils" />
+<view class="page-wrap"  >
+		<top mode="easy" backType="back" chatCountShow="{{true}}" chatCount="{{chatCount}}" photo="{{photo}}" catch:back="back">
+			<text bind:tap="showInfo" wx:if="{{!showFansInfo}}" >{{fansInfo.nickName}}</text>
+		</top>
+		 <!-- wx:if="{{showFansInfo}}" -->
+		<view class="fans-info" animation="{{lAnimate}}" style="height: 150rpx;">
+			<view bind:tap="touchAvatarFn">
+				<view class="flex" >
+					<view class="flex-co left">
+						<view class="u-overflow name">
+							{{fansInfo.nickName || '--'}}
+							<text class="iconfont {{fansInfo.gender===1 ? 'iconicon-male' : fansInfo.gender===2 ? 'iconicon-female' : 'iconweizhixingbie' }}"
+							style="color: {{fansInfo.gender===1 ? '#549fff' : fansInfo.gender===2 ? '#ff6f4e' : '#666' }}"
+							></text>
+							<text class="markTags {{markClass}}"></text>
+						</view>
+						<view class="source" >
+							{{fansInfo.appAccountName || '--'}} | {{utils.formatScene(fansInfo) || '--'}}
+						</view>
+					</view>
+					<view class="right">
+						<text class="iconfont iconunie61f-copy-copy-copy-copy content"></text>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="chat-container">
+			<scroll
+				id="scroll"
+				bind:reachTop="scrolltoupper"
+				bind:moving="moving"
+				downLocked="{{downLocked}}"
+				>
+				<view >
+					<view class="more">
+						<view bindtap="lookMore" wx:if="{{!loading}}">
+							<text wx:if="{{isMore && requestHistoryCount < 2}}" class="icon iconfont iconclock"></text>
+							<text class="text right" wx:if="{{isMore && requestHistoryCount < 2}}">查看更多消息</text>
+							<text class="text right" wx:if="{{!isMore}}">没有更多消息</text>
+						</view>
+						<view wx:if="{{loading}}" class="loadAnimaition weui-loading"></view>
+					</view>
+
+					<view class="scroll-wrapper">
+						<!-- 历史记录, 倒叙 -->
+						<view
+							class="chat-msg" wx:for="{{store.chatList.messages}}"
+							wx:for-item="message"
+							wx:key="{{message.messageBody.msgIdmsgId}}">
+								<msg msgData="{{message}}"
+								data-index="{{index}}"
+								bind:msgComponentReady="msgComponentReady"
+								bind:touchAvatar="touchAvatarFn"
+								bind:popoverEvent="popoverEvent"
+								/>
+						</view>
+					</view>
+
+					<view>
+						<!-- 正在聊天 -->
+						<view
+							class="chat-msg" wx:for="{{messages}}"
+							wx:for-item="message"
+							wx:key="{{message.messageBody.msgIdmsgId}}">
+								<msg msgData="{{message}}"
+								data-index="{{index}}"
+								bind:msgComponentReady="sendMsgComponentReady"
+								bind:touchAvatar="touchAvatarFn"
+								bind:popoverEvent="popoverEvent"
+								/>
+						</view>
+					</view>
+					<!-- <view class="holder"></view> -->
+				</view>
+			</scroll>
+		</view>
+    <view class="input-panel">
+			<chartInput
+			bind:send="sendmsg"
+			bind:inputTouch="setToBottom"
+			bind:keyboardheightchange="keyboardheightchange"
+			msgCountToday="{{msgCountToday}}"
+			inputPanel="{{inputPanel}}"
+			forceStatus="{{forceStatus}}"
+			cancelFocus="{{cancelFocus}}"
+			sendedMsgStatus="{{sendedMsgStatus}}"></chartInput>
+    </view>
+</view>
+
+<popover id='popover' v="top" trigger="touch">
+	<popover-item>{{errMsg}}</popover-item>
+</popover>

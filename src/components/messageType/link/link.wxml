@@ -1,0 +1,10 @@
+<view class="link-msg">
+	<view class="link-msg-title" bindtap="clickTarget">{{title}} sadfasfd</view>
+	<view class="row">
+		<view class="link-msg-des" bindtap="clickTarget">{{desc}}</view>
+		<view class="link-msg-img">
+			<image class="officeicon" src="{{url}}"/>
+		</view>
+	</view>
+</view>
+

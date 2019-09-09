@@ -1,0 +1,33 @@
+<u-backbar title="{{isVisible ? '基本信息': ''}}" tip="{{true}}" bind:back="sureBack"></u-backbar>
+<view class="app">
+		<view class="app__inner">
+				<view class="u-mt-large app__title" id="app_title">基本信息</view>
+				<view class="vant-field-group">
+						<form>
+								<vant-field custom-class="fans-field" value="{{ form.name }}" readonly="{{!canAction}}" label="姓名" bind:change="onFieldChange" error-message="{{!valid.name ? '姓名不超过30个字符': ''}}" bind:blur="onFieldBlur" data-field="name" placeholder="未填写" clearable />
+								<vant-field custom-class="fans-field" value="{{ form.phone }}" readonly="{{!canAction}}" bind:change="onFieldChange" error-message="{{!valid.phone ? '手机号格式不正确': ''}}" type="number" bind:blur="onFieldBlur" data-field="phone" label="联系电话" placeholder="未填写" clearable />
+								<vant-cell title="所在地区" title-width="90px">
+										<site bind:enter="onPickChange" value="{{initLocationArea}}" bink:cancel="cancel" wx:if="{{canAction}}" bind:on-visible-change="areaPickerChange">
+												<view class="fans-pick-field">
+														<text wx:if="{{!form.locationArea.length}}">未选择</text>
+														<view wx:else style="color: #333">{{form.locationArea}}</view>
+												</view>
+										</site>
+										<view class="fans-pick-field" wx:else>
+												<block wx:if="{{!form.locationArea.length}}">未选择</block>
+												<view wx:else style="color: #333">{{form.locationArea}}</view>
+										</view>
+								</vant-cell>
+								<vant-field custom-class="fans-field" value="{{ form.locationDetail }}" readonly="{{!canAction}}" label=" " bind:change="onFieldChange" bind:blur="onFieldBlur" data-field="locationDetail" placeholder="例：16号楼5层301室" clearable />
+								<vant-field custom-class="fans-field" value="{{ form.weChat }}" readonly="{{!canAction}}" label="微信号" bind:change="onFieldChange" error-message="{{!valid.weChat ? '微信号格式不正确': ''}}" bind:blur="onFieldBlur" data-field="weChat" placeholder="未填写" clearable />
+								<vant-field custom-class="fans-field" value="{{ form.qq }}" readonly="{{!canAction}}" label="QQ" bind:change="onFieldChange" error-message="{{!valid.qq ? 'QQ格式不正确': ''}}" bind:blur="onFieldBlur" data-field="qq" placeholder="未填写" clearable />
+								<vant-field custom-class="fans-field" value="{{ form.email }}" readonly="{{!canAction}}" label="邮箱" bind:change="onFieldChange" error-message="{{!valid.email ? '邮箱格式不正确': ''}}" bind:blur="onFieldBlur" data-field="email" placeholder="未填写" clearable />
+								<vant-field custom-class="fans-field" value="{{ form.age }}" readonly="{{!canAction}}" type="number" bind:change="onFieldChange" error-message="{{!valid.age ? '年龄不正确': ''}}" bind:blur="onFieldBlur" data-field="age" label="年龄" placeholder="未填写" clearable />
+								<vant-field custom-class="fans-field" wx:if="{{!areaPickerVisible}}" input-class="fans-textarea-field" value="{{ form.remark }}" readonly="{{!canAction}}" bind:change="onFieldChange" bind:blur="onFieldBlur" error-message="{{!valid.remark ? '不能超过100个字': ''}}" data-field="remark" type="textarea" label="备注" placeholder="未填写" clearable />
+						</form>
+				</view>
+		</view>
+		<view class="app__bottom {{isIPX && 'app__bottom__IPX' }}" wx:if="{{canAction}}">
+				<button class="btn" type="primary" bind:tap="submitForm" loading="{{loading}}">保存</button>
+		</view>
+</view>

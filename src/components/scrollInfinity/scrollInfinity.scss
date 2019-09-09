@@ -1,0 +1,68 @@
+page{
+	height: 100%;
+}
+.scroll-infi {
+	height: 100%;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	padding-right: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.scroll-wrapper {
+	flex: 1;
+	overflow: hidden;
+}
+.scroll-header {
+	flex-shrink: 0;
+}
+
+.scroll-footer {
+	flex-shrink: 0;
+}
+.scroll-container {
+	flex-grow: 1;
+}
+
+.scroll-load-more {
+	position: fixed;
+	left: 0;
+	top: 100%;
+	height: 0;
+	width: 100%;
+	transition: all 0.3s;
+	.weui-loadmore{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.scroll-load-refresh {
+	position: fixed;
+	left: 0;
+	bottom: 100%;
+	width: 100%;
+	transition: all 0.3s;
+	.weui-loadmore{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.scroll-main {
+	height: 100%;
+	margin-right: 5px;
+	box-sizing: border-box;
+}
+.scroll-down {
+	transform: translateY(100px)
+}
+.scroll-upper {
+	transform: translateY(-100px)
+}
+.scroll-back {
+	transform: translateY(0)
+}

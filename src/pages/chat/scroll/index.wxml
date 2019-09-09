@@ -1,0 +1,12 @@
+<!-- 组件名 | 组件描述 -->
+<scroll-view class="scroll-outer"
+	id="scroll-outer"
+	bind:touchstart="touchStart"
+	bind:touchend="touchEnd"
+	catch:touchmove="touchMove"
+	>
+	<view id="inner-scroll" class="scroll-inner"
+		style="bottom: {{bottom}}px; transition: {{transition}}; transform: translateY({{translateY}}px);">
+		<slot></slot>
+	</view>
+</scroll-view>

@@ -1,0 +1,42 @@
+@import "../../assets/scss/support";
+
+.app__inner {
+	padding: 46px 0 250px 0;
+}
+.app__title {
+	padding-left: 46px;
+}
+.vant-field-group {
+	margin-top: 60px;
+	.van-cell {
+		padding-left: 46px;
+		font-size: 51px;
+	}
+	.field-index--fans-field {
+		&:after {
+			border-bottom-color: #177ee5;
+		}
+	}
+	.field-index--fans-field-error {
+		&:after {
+			border-bottom-color: #e64340;
+		}
+	}
+	.van-field__error-message {
+		position: absolute;
+		right: 48px;
+		bottom: -66px;
+		// transform: translateY(100px);
+		z-index: 1;
+	}
+	.fans-textarea-field {
+		height: 300px;
+	}
+	.fans-pick-field {
+		display: flex;
+	}
+}
+
+.group-action {
+	padding: 160px 71px 100px;
+}

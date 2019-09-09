@@ -1,0 +1,30 @@
+<!--选择企业（企业列表）-->
+<view class="page">
+	<!-- <top mode="easy" photo="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKdEf3fhCrFCNyOD5WdzXtmpHRzdVqYf9Up5YZz55AOaN9COpxDeslCuSGy6OBZdAOic79AtUBIbmA/132"></top> -->
+	<top mode="easy" photo="{{photo}}"></top>
+	<view class="title">选择企业</view>
+
+	<block wx:if="{{query.type}}">
+		<view class="no-company">
+			<text class="iconfont iconqiye"></text>
+			<view class="text">您当前尚未加入企业，请在电脑端打开销大师网址：www.xiaodashi.com创建企业。</view>
+			<button wx:if="{{query.type == 'joined'}}" class="btn1" bindtap="toCreate">创建企业</button>
+		</view>
+	</block>
+
+	<view class="companys" wx:else>
+		<block wx:for="{{list}}" wx:for-index="i" wx:for-item="item" wx:key="i">
+			<view class="company-card" data-dex="{{i}}" bind:tap="checkCompany">
+				<view class="company-name">{{item.corpName}}</view>
+				<view class="company-status">
+					{{item.version}}
+					<text class="tieku">|</text>
+					<text class="{{item.packStatus}}">{{status[item.packStatus]}}</text>
+				</view>
+			</view>
+		</block>
+	</view>
+
+	<loading hidden="{{load}}">数据加载中...</loading>
+
+</view>

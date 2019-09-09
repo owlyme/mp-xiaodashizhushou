@@ -1,0 +1,58 @@
+<!--创建企业页面-->
+<view class="page" style="height:{{global.systemInfo.screenHeight}}px;">
+	<!-- <top mode="easy" photo="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKdEf3fhCrFCNyOD5WdzXtmpHRzdVqYf9Up5YZz55AOaN9COpxDeslCuSGy6OBZdAOic79AtUBIbmA/132"></top> -->
+	<top mode="easy" photo="{{photo}}"></top>
+
+	<view class="title-box full-box">
+		<view class="title">免费试用</view>
+		<view class="describe">
+			您当前暂无企业，
+		</view>
+		<view class="describe">
+			立即创建企业领取免费试用机会，开启营销增长之旅。
+		</view>
+	</view>
+
+	<form class="form-create">
+		<view class="form-item">
+			<view class="form-label">手机号码</view>
+			<view class="form-input">
+				<button wx:if="{{!phone}}" class="holder input-btn"
+					bindgetphonenumber="phoneTap" open-type="getPhoneNumber"
+				>获取手机号码
+				</button>
+				<button wx:else class="input-btn"
+					bindgetphonenumber="phoneTap" open-type="getPhoneNumber"
+				>{{phone}}
+				</button>
+			</view>
+		</view>
+		<block wx:for="{{inputs}}" wx:key="item">
+			<view class="form-item {{item.focus ? 'focus' : ''}}">
+				<view class="form-label">{{item.label}}</view>
+				<input-clear
+					class="form-input"
+					bindinput="input"
+					bindfocus="focus"
+					bindblur="blur"
+					bindclean="clean"
+					item="{{item}}"
+				></input-clear>
+			</view>
+		</block>
+		<view class="form-item">
+			<view class="form-label">所在地区</view>
+			<view class="form-input">
+				<!-- 请选择省市区 -->
+				<site bind:enter="enter" bink:cancel="cancel" siteType="company">
+					<text wx:if="{{site}}">{{site}}</text>
+					<text class="holder" wx:else>请选择地区</text>
+				</site>
+			</view>
+		</view>
+		<button class="form-submit" wx:if="{{loading}}" loading>
+			<text style="padding-left: 20rpx;">创建中</text>
+		</button>
+		<button class="form-submit" wx:else form-type="submit" disabled="{{disabled}}" bind:tap="submit">创建企业</button>
+	</form>
+</view>

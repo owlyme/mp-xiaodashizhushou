@@ -1,0 +1,28 @@
+@import "../../assets/scss/support";
+
+.app__inner {
+	padding: 46px 0 250px 46px;
+}
+.group-list {
+	flex-direction: column;
+	margin-top: 80px;
+	.group-item {
+		height: 160px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: left;
+		box-sizing: border-box;
+		padding-right: 46px;
+		font-size: 51px;
+		color: #303133;
+	}
+	.iconfont {
+		font-size: 66px;
+		color: #177ee5;
+	}
+}
+.group-action {
+	margin-top: 160px;
+	padding: 0 71px 100px 25px;
+}

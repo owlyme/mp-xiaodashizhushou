@@ -1,0 +1,16 @@
+<!--components/temp/temp.wxml-->
+<swiper class="swiper-container" indicator-dots="{{indicatorDots}}"
+	indicator-color="#d6d6d6" indicator-active-color="#8b8b8b">
+  <block wx:for="{{expressionList}}"  wx:for-index="idx" wx:for-item="itemlist"  wx:key="{{idx}}">
+    <swiper-item>
+			<view class="swiper-inner">
+				<image wx:for="{{itemlist}}"
+				class="emoji"
+				src="{{item.url}}"
+				bindtap="getSelected"
+				wx:key="{{index}}"
+				data-emoji="{{item}}"/>
+			</view>
+    </swiper-item>
+  </block>
+</swiper>

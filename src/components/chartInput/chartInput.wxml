@@ -1,0 +1,88 @@
+<view class="chat-editor" bind:tap="inputTouch" style="padding-bottom: {{keyboardHeight}}px">
+	<view wx:if="{{cancelFocus}}" class="cancel-focus">
+		<view class="text">
+			当前粉丝已取消关注公众号，无法发起会话
+		</view>
+	</view>
+	<!-- 强制发送 -->
+	<view wx:elif="{{forceChat}}" class="force">
+		<view class="text">
+			粉丝超过48小时未沟通，您可强制发送消息
+		</view>
+		<button class="rectangle" bindtap="forceChatFn">强制发送(剩余{{forceChatCount}}次)</button>
+	</view>
+
+ <block wx:else>
+  <view class="chat-box {{disable ? 'disablestyle' : ''}}">
+   <!-- 键盘 -->
+   <view wx:if="{{showRecordingBtn}}" class="chat-box-item iconfont iconjianpan-"
+    bindtap="closePanel">
+   </view>
+   <!-- 录音 -->
+   <view wx:else class="chat-box-item iconfont iconyuyin-" bindtap="showRecording"></view>
+
+   <view class="chat-box-input">
+    <view class="recording" wx:if="{{showRecordingBtn}}">
+     <record
+     disable="{{disable}}"
+     bindstartRecord="startRecord"
+     bindstopRecord="stopRecord"
+     ></record>
+    </view>
+
+		<textarea wx:else
+     placeholder="在这输入消息内容~"
+     show-confirm-bar="{{false}}"
+     auto-height="true"
+     auto-focus="{{foucs}}"
+     value="{{text}}"
+     bindfocus="inputFocus"
+     bindblur="inputblur"
+		 bindinput="getText"
+     cursor-spacing="{{10}}"
+     placeholder-class="textarea-placeholder"
+		 maxlength="{{maxText}}"
+
+		 bindkeyboardheightchange="keyboardheightchange"
+     style="top: 3px"
+		/>
+		<!-- adjust-position="{{false}}" -->
+   </view>
+   <!-- 键盘 -->
+   <view wx:if="{{showEmoji}}" class="chat-box-item iconfont iconjianpan-"
+    bindtap="closePanel">
+   </view>
+   <!-- 选择表情 -->
+   <view wx:if="{{!showEmoji}}"
+    class="chat-box-item iconfont iconbiaoqingbao-xianxing"
+    hover-class="none"
+    hover-stop-propagation="false"
+    bindtouchend="openEmoji">
+
+   </view>
+   <!-- 上传图片 -->
+   <view wx:if="{{!text.length}}" class="chat-box-item iconfont icontianjia-"
+    bindtap="selectedMedia">
+   </view>
+   <!-- 发送 -->
+   <view wx:else class="chat-box-item send"
+    bindtouchend="sendText">
+    <image class="image" src="/image/qunfa@3x.png" />
+   </view>
+  </view>
+  <view class="hidden-panel" hidden="{{!showHiddenPanel}}">
+   <!-- 表情 -->
+   <view hidden="{{!showEmoji}}">
+    <emoji bindselectedImg="selectedEmoji"></emoji>
+   </view>
+   <!-- 图片 -->
+   <view wx:if="{{!showEmoji}}" class="select-img">
+    <view class="select-img-item" bindtap="uploadImage">
+     <view class="iconfont iconmorentupianccccccpx img-btn"></view>
+     <view class="img-text">照片</view>
+    </view>
+   </view>
+  </view>
+ </block>
+ <view wx:if="{{phoneX}}" class="chat-editor-bottom"></view>
+</view>

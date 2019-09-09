@@ -1,0 +1,102 @@
+<wxs src="../../chatList.wxs" module="tools" />
+<view class="item-wrapper chatListMain">
+	<view class="have-data" wx:if="{{tools.showData(store.chatList, chattingListData, chatListData)}}">
+		<view class="scramble item-list" wx:if="{{tools.showScramble(store.chatList, chattingListData)}}">
+			<view class="item-info scramble-item-info" bind:tap="goScramble" hover-class="active-item" hover-stay-time="{{100}}">
+				<view class="info-head">
+					<view class="scramble-head">抢</view>
+				</view>
+				<view class="info-wrapper van-hairline--bottom">
+					<view class="ver-center">
+						<view class="info-desc scramble-desc">
+							<view class="name">抢单池({{store.chatList.scrambleTotal}})</view>
+							<view class="time"><timeFilter createTime="{{store.chatList.scramble[0] && store.chatList.scramble[0].messageBody.createTime}}"></timeFilter></view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 正在会会话列表 -->
+		<view class="hiddenList" hidden="{{store.chatList.chatType !== 'chattingList'}}">
+			<view class="item-list" wx:if="{{tools.showChatList(store.chatList, item)}}" wx:for="{{chattingListData}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+				<view class="item-info" data-index="{{index}}">
+					<swipeCell class="swipe-cell" data-item="{{item}}" right-width="{{ 70 }}" bind:touchStart="touchStart" async-close bind:close="onClose">
+						<view class="item-info-item" hover-class="active-item" hover-stay-time="{{100}}" hover-stop-propagation="{{true}}">
+							<view class="info-head" bind:tap="getFansDetail" data-item="{{item}}">
+								<image class="info-img" src="{{item.headImgUrl}}"></image>
+								<view>
+									<view class="num larg borderRadius" wx:if="{{item.unreadNum > 99}}">...</view>
+									<view class="num {{item.unreadNum >= 10 ? 'borderRadius' : ''}}"  wx:if="{{item.unreadNum && item.unreadNum <= 99}}">{{item.unreadNum}}</view>
+								</view>
+							</view>
+							<view class="info-wrapper info-chatList-wrapper van-hairline--bottom" bind:tap="getChatMessage" data-item="{{item}}">
+								<view class="ver-center">
+									<view class="info-desc">
+										<view class="name">
+											<text class="info-name">{{item.name}}</text>
+											<markTags class="marks" item="{{item}}" bindchatListComponentReady="chatListComponentReady"></markTags>
+										</view>
+										<view class="time">
+											<timeFilter createTime="{{item.messageBody.createTime}}"></timeFilter>
+										</view>
+									</view>
+									<view class="info-content">
+										<view class="reception" wx:if="{{item.messageBody && item.messageBody.msgType === 'INTELLIGENT_RECEPTION_SYSTEM_MESSAGE'}}">[智能接待]</view>
+										<view class="details" wx:if="{{store.drafts[item.convrId]}}">
+											<text class="drafts">[草稿]</text>
+											<text>{{store.drafts[item.convrId]}}</text>
+										</view>
+										<infoContent class="details" wx:else infoType="chatList" color="''" item="{{item}}"></infoContent>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view slot="right" class="oper-delete">关闭</view>
+					</swipeCell>
+				</view>
+			</view>
+		</view>
+		<!-- 其他 -->
+		<view class="hiddenList" hidden="{{store.chatList.chatType === 'chattingList'}}">
+			<view class="item-list" wx:for="{{chatListData}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+				<view class="item-info" data-index="{{index}}">
+					<swipeCell class="swipe-cell" disabled="{{store.chatList.chatType!=='recentContacts'}}" data-item="{{item}}" right-width="{{ 70 }}" bind:touchStart="touchStart" async-close bind:close="onClose">
+						<view class="item-info-item" hover-class="active-item" hover-stay-time="{{100}}" hover-stop-propagation="{{true}}">
+							<view class="info-head" bind:tap="getFansDetail" data-item="{{item}}">
+								<image class="info-img" src="{{item.headImgUrl}}"></image>
+								<view>
+									<view class="num larg borderRadius" wx:if="{{item.unreadNum > 99}}">...</view>
+									<view class="num {{item.unreadNum >= 10 ? 'borderRadius' : ''}}"  wx:if="{{item.unreadNum && item.unreadNum <= 99}}">{{item.unreadNum}}</view>
+								</view>
+							</view>
+							<view class="info-wrapper info-chatList-wrapper van-hairline--bottom" bind:tap="getChatMessage" data-item="{{item}}">
+								<view class="ver-center">
+									<view class="info-desc">
+										<view class="name">
+											<text class="info-name">{{item.name}}</text>
+											<markTags class="marks" item="{{item}}" bindchatListComponentReady="chatListComponentReady"></markTags>
+										</view>
+										<view class="time">
+											<timeFilter createTime="{{item.messageBody.createTime}}"></timeFilter>
+										</view>
+									</view>
+									<view class="info-content">
+										<view class="reception" wx:if="{{item.messageBody && item.messageBody.msgType === 'INTELLIGENT_RECEPTION_SYSTEM_MESSAGE'}}">[智能接待]</view>
+										<view class="details" wx:if="{{store.drafts[item.convrId]}}">
+											<text class="drafts">[草稿]</text>
+											<text>{{store.drafts[item.convrId]}}</text>
+										</view>
+										<infoContent class="details" wx:else infoType="chatList" color="''" item="{{item}}"></infoContent>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view slot="right" class="oper-delete">关闭</view>
+					</swipeCell>
+				</view>
+			</view>
+		</view>
+	</view>
+	<noData wx:else></noData>
+</view>

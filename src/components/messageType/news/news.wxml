@@ -1,0 +1,25 @@
+<view class="news-container" >
+
+	<text class="iconfont iconxiazaishibai fail"
+		wx:if="{{uploadStatus == 'fail' && !msgBody.source  || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"></text>
+
+	<view class="news-header">
+		<view class="news-img">
+			<image class="image" wx:if="{{result.picurl}}" src="{{result.picurl}}" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
+			<view wx:else class="iconfont iconmorentupianccccccpx"></view>
+		</view>
+		<view class="news-title">{{result.title}}</view>
+	</view>
+	<view class="news-des" wx:if="{{result.description}}">
+		<view class="news-des-inner">{{result.description}}</view>
+	</view>
+	<view class="line"></view>
+	<view class="news-info" bindtap="towebview" >
+		<view class="info-btn">详情</view>
+		<view class="iconfont iconunie61f-copy-copy-copy-copy"></view>
+	</view>
+</view>
+

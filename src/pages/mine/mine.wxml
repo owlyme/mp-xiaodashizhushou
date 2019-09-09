@@ -1,0 +1,107 @@
+<view class="page-wrap">
+	<top mode="custom"></top>
+	<view class="container">
+		<view class="mine-page">
+			<view class="info" >
+				<view class="flex" hover-class="none" hover-stop-propagation="false">
+					<view class="flex-co">
+						<view class="name">
+							{{info.nickName}}
+						</view>
+						<view class="company">
+							{{info.companyName}}
+						</view>
+					</view>
+					<view>
+						<image class="avatar" src="{{info.avatarUrl}}"  />
+					</view>
+				</view>
+
+				<view class="flex online-status" bindtap="updateStatus">
+					<view>
+						<view class="circle {{online_status ? '' : 'gray-cicle' }}"></view>
+						<text class="status">{{online_status ? '在线' : '离线' }}</text>
+					</view>
+					<view >
+						<text class="iconfont iconunie61f-copy-copy-copy-copy content"></text>
+					</view>
+				</view>
+			</view>
+
+			<view class="gray" >
+				客服消息通知
+			</view>
+			<view class="info">
+				<view class="flex">
+					<view class="title">
+						来访未发言
+					</view>
+					<view>
+						<switch color="#177ee5" data-key="XDS_MP_VISIT_NOT_SPEAK" checked="{{XDS_MP_VISIT_NOT_SPEAK}}" bindchange="switchFn"/>
+					</view>
+				</view>
+				<view>
+					<view class="content">开启后，粉丝与公众号产生除发消息外的互动事件时，在销大师公众号以客服消息的形式通知。</view>
+				</view>
+				<view class="line"></view>
+				<view class="flex">
+					<view class="title">
+						粉丝消息
+					</view>
+					<view>
+						<switch color="#177ee5" data-key="XDS_MP_FANS_SEND_MSG" checked="{{XDS_MP_FANS_SEND_MSG}}" bindchange="switchFn"/>
+					</view>
+				</view>
+				<view>
+					<view class="content">开启后，粉丝发消息时在销大师公众号以客服消息的形式通知。</view>
+				</view>
+			</view>
+
+			<view class="gray" >
+				声音通知
+			</view>
+			<view class="info">
+				<view class="flex">
+					<view class="title">
+						来访未发言
+					</view>
+					<view>
+						<switch color="#177ee5" data-key="XDS_MP_VOICE_VISIT_NOT_SPEAK" checked="{{XDS_MP_VOICE_VISIT_NOT_SPEAK}}" bindchange="switchFn"/>
+					</view>
+				</view>
+				<view>
+					<view class="content">开启后，在销大师小程序打开且粉丝来访未发言时有声音提醒。</view>
+				</view>
+				<view class="line"></view>
+				<view class="flex">
+					<view class="title">
+						粉丝消息
+					</view>
+					<view>
+						<switch color="#177ee5" data-key="XDS_MP_VOICE_FANS_SEND_MSG" checked="{{XDS_MP_VOICE_FANS_SEND_MSG}}" bindchange="switchFn"/>
+					</view>
+				</view>
+				<view>
+					<view class="content">开启后，在销大师小程序打开且粉丝发消息时有声音提醒。</view>
+				</view>
+			</view>
+			<view class="info interval">
+				<view class="flex" bindtap="selectedTime">
+					<view class="title1">
+						通知间隔时间
+					</view>
+					<view class="content1" >
+						<text class="time">{{XDS_MP_NOTIFICATION_INTERVAL}}分钟</text>
+						<text class="iconfont iconunie61f-copy-copy-copy-copy"></text>
+					</view>
+				</view>
+			</view>
+
+			<view class="ft-btn">
+				<navigator url="/pages/company/index">
+					切换企业
+				</navigator>
+			</view>
+		</view>
+	</view>
+</view>

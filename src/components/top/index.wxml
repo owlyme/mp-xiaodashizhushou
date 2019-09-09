@@ -1,0 +1,27 @@
+<!-- 自定义的顶部组件 -->
+<view class="top" style="height: {{topHeight}}px;padding-top: {{statusBarHeight}}px;">
+  <!-- easy模式 -->
+  <block wx:if="{{mode == 'easy'}}">
+    <!-- 左侧返回按钮 -->
+    <view class="top-btn" wx:if="noBack">
+			<view class="photo" wx:if="{{photo}}">
+				<image class="photo-img" src="{{photo}}" catch:tap="photoTap"></image>
+				<view  wx:if="{{onLineStatus}}" class="{{onLineStatus && onLineStatus === 'ON_LINE' ? 'on-line' : 'off-line iconfont iconclock'}}"></view>
+			</view>
+			<text wx:elif="{{backType == 'back'}}" class="back iconfont iconfanhui" catch:tap="back">
+				<text wx:if="{{chatCountShow}}" class="chatCount">会话<text wx:if="{{chatCount}}">({{chatCount}})</text></text>
+			</text>
+    </view>
+    <!-- 页面标题 -->
+    <view class="top-title">
+      <slot></slot>
+    </view>
+  </block>
+
+  <!-- custom模式 -->
+  <block wx:if="{{mode == 'custom'}}">
+    <slot></slot>
+  </block>
+</view>
+<!-- 占位元素 -->
+<view style="height: {{topHeight + statusBarHeight}}px; min-height: 64px;"></view>

@@ -1,0 +1,11 @@
+<!--页面描述-->
+<view class="no-data">
+	<view class="no-data-img">
+		<view>
+			<view class="no-data-icon">
+				<view class="iconfont iconxiaoxicopyx"></view>
+			</view>
+			<view class="no-data-tips">{{noDataText}}</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black",
+  "usingComponents" : {
+    "eventInfo": "./components/eventInfo/index",
+    "u-backbar": "../../components/backbar/index",
+    "noData": "../chatList/components/noData/index"
+  }
+}

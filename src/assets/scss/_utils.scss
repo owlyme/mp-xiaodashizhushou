@@ -1,0 +1,79 @@
+@import "./support";
+// flex
+.u-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.u-flex-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.u-overflow {
+	@include text-overflow;
+}
+// clearfix
+.u-clearfix {
+	@include clearfix;
+}
+
+.u-fl-l {
+	float: left;
+}
+
+.u-fl-n {
+	float: none;
+}
+
+.u-fl-r {
+	float: right;
+}
+// tag
+.u-tag {
+	display: inline-block;
+	height: 98px;
+	line-height: 98px;
+	border-radius: 6px;
+	padding: 0 48px;
+	font-size: 42px;
+	color: #ffffff;
+	background: #9ad5ff;
+}
+// cell
+.u-cells {
+
+}
+.u-cell {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex: 1;
+	border-bottom: solid 1rpx #e3e4e6;
+	&__bd {
+		flex: 1;
+		font-size: 51px;
+		color: #303133;
+	}
+	&__ft {
+		text-align: right;
+		font-size: 42px;
+		color: #7e7f80;
+	}
+}
+
+// 重置基础组件样式
+button[type=primary] {
+	color: #fff;
+	background-color: $colorPrimary !important;
+}
+.button-hover[type=primary] {
+	color: rgba(255, 255, 255, 0.6);
+	background-color: $colorPrimary;
+}
+button[loading][type=primary] {
+	color: rgba(255, 255, 255, 0.6);
+	background-color: $colorPrimary;
+}
+// 一像素
+.van-hairline,.van-hairline--bottom,.van-hairline--left,.van-hairline--right,.van-hairline--surround,.van-hairline--top,.van-hairline--top-bottom{position:relative}.van-hairline--bottom:after,.van-hairline--left:after,.van-hairline--right:after,.van-hairline--surround:after,.van-hairline--top-bottom:after,.van-hairline--top:after,.van-hairline:after{content:" ";position:absolute;pointer-events:none;box-sizing:border-box;-webkit-transform-origin:center;transform-origin:center;top:-50%;left:-50%;right:-50%;bottom:-50%;-webkit-transform:scale(.5);transform:scale(.5);border:0 solid #eee}.van-hairline--top:after{border-top-width:1px}.van-hairline--left:after{border-left-width:1px}.van-hairline--right:after{border-right-width:1px}.van-hairline--bottom:after{border-bottom-width:1px}.van-hairline--top-bottom:after {border-width:1px 0}.van-hairline--surround:after{border-width:1px}

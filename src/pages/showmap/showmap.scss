@@ -1,0 +1,27 @@
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  background: #ebebeb;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	overflow: hidden;
+}
+.map-title {
+	width: 780px;
+	height: 132px;
+	padding: 28px 31px;
+	.header {
+		font-size: 42px;
+		color: #303133;
+	}
+	.location {
+		font-size: 36px;
+		color: #979899;
+	}
+}
+.map {
+	flex: 1;
+}

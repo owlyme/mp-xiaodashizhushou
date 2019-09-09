@@ -1,0 +1,75 @@
+.sys-container {
+	margin: 0 72px;
+	font-family: PingFang-SC-Medium;
+	font-size: 36px;
+	color: #b1b2b3;
+	.flex-col {
+		display: flex;
+		overflow: hidden;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 83px;
+		.text-s {
+			display: flex;
+			overflow: hidden;
+			align-items: center;
+			justify-content: center;
+			.information {
+				margin-top: 20px;
+				display: flex;
+				.type-info {
+					flex-shrink: 0;
+				}
+			}
+		}
+	}
+}
+
+.line {
+	width: 300px;
+	height: 3px;
+	background-color: #e3e4e6;
+}
+
+.text-blue {
+	font-family: PingFang-SC-Medium;
+	font-size: 36px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #177ee5;
+	margin-right: 16px;
+}
+.text-org {
+	font-family: PingFang-SC-Medium;
+	margin-right: 16px;
+	font-size: 36px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #ff6f4e;
+}
+.map {
+	width: 780px;
+	height: 375px;
+	background-color: #ffffff;
+	border-radius: 3px;
+
+	.map-title {
+		width: 780px;
+		height: 132px;
+		padding: 28px 31px;
+		.header {
+			font-size: 42px;
+			color: #303133;
+		}
+		.location {
+			font-size: 36px;
+			color: #979899;
+		}
+	}
+	.map-block {
+		width: 780px;
+		height: 348px;
+	}
+}
+

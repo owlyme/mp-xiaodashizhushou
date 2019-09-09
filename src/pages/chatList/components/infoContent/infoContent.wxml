@@ -1,0 +1,3 @@
+<!--页面描述-->
+<rich-text class="rich-text" nodes="{{nodes}}">
+</rich-text>

@@ -1,0 +1,52 @@
+@import "../../../../assets/scss/iconfont";
+.chatType {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	height: 152px;
+	font-size: 51px;
+	color: #323333;
+	font-weight: bold;
+	.type-part {
+		float: left;
+		height: 100%;
+		width: 50%;
+		position: relative;
+		color: #323333;
+		&.active {
+			color: #177ee6;
+			.line {
+				display: block;
+			}
+		}
+		.text {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.tap-text {
+				padding: 0 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.iconfont {
+					font-size: 20px;
+					margin-left: 15px;
+				}
+			}
+		}
+		.line {
+			position: absolute;
+			bottom: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 120px;
+			height: 8px;
+			display: none;
+			background-color: #177ee6;
+			border-radius: 4px;
+		}
+	}
+}

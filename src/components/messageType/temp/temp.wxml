@@ -1,0 +1,21 @@
+<view class="news-container">
+	<text class="iconfont iconxiazaishibai fail"
+		wx:if="{{uploadStatus == 'fail' && !msgBody.source  || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"></text>
+
+	<view class="news-header">
+		<view class="temp-tit">{{title}}</view>
+		<view class="temp-sub-tit">{{createTime}}</view>
+	</view>
+	<view class="news-des">
+		<rich-text class="temp-item" nodes="{{nodes}}"></rich-text>
+	</view>
+	<view class="line"></view>
+	<view class="news-info" >
+		<view class="info-btn">{{name}}</view>
+	</view>
+</view>
+
+

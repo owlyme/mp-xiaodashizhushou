@@ -1,0 +1,55 @@
+@import "../../assets/scss/support";
+
+.app__inner {
+	padding: 46px 0 250px 0;
+}
+.app__title {
+	padding-left: 46px;
+}
+.app__cont {
+	margin-top: 80px;
+	// margin-bottom: 250px;
+	.van-collapse-item__content {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.van-collapse-item:after {
+		display: none;
+	}
+}
+.van-cell {
+	padding-left: 46px;
+	.van-cell__title {
+		font-size: 51px;
+		color: #303133;
+	}
+}
+.u-toggle-tag {
+	display: inline-block;
+	padding: 35px 48px;
+	background-color: #f5f6f7;
+	border-radius: 10px;
+	color: #484a4d;
+	font-size: 42px;
+	margin-right: 47px;
+	margin-top: 46px;
+	&_active {
+		background-color: #177ee5;
+		color: #fff;
+	}
+}
+.app__bottom {
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.05);
+	width: 100%;
+	box-sizing: border-box;
+	padding: 40px 70px;
+	background: #fff;
+	button {
+		box-shadow: 0px 5px 20px 0px	rgba(3, 101, 200, 0.5);
+	}
+}
+.app__bottom.app__bottom__IPX {
+	padding-bottom: 96px;
+}

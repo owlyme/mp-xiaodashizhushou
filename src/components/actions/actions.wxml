@@ -1,0 +1,12 @@
+<view class="modal_container">
+  <view class="modal_mask" hidden="{{actionSheetHidden}}"  bindtap="down"></view>
+  <view class="modal" bindtap="down"  animation="{{animationData}}">
+		<view class="action-item" bindtouchend="selected">
+			<slot></slot>
+		</view>
+		<view class="action-space"></view>
+		<view class="action-cancle" hover-class="action-hover">
+			<view class="">{{cancle}}</view>
+		</view>
+	</view>
+</view>

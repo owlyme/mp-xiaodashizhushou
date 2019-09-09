@@ -1,0 +1,26 @@
+<view class="video-container">
+	<cover-view class="video-cover" capture-bind:tap="videoPlay"></cover-view>
+
+	<text class="iconfont iconxiazaishibai fail"
+		wx:if="{{uploadStatus == 'fail' && !msgBody.source  || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"></text>
+	<view class="tap-video" wx:if="{{msgBody.messageBody.media_cloud_url}}">
+			<video
+				class="video"
+				id="A{{msgBody.messageBody.msgId}}"
+				data-src="{{src}}"
+				src="{{src}}"
+				title="{{title}}"
+				bindprogress="progress"
+				objectFit='contain'
+				show-play-btn="{{false}}"
+				play-btn-position="center"
+			></video>
+	</view>
+	<view wx:else class="no-video" bindtap="noVideoPlay">
+		<view class="iconshipin iconfont"></view>
+	</view>
+</view>
+

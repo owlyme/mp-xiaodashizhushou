@@ -1,0 +1,67 @@
+// 支持文件
+@import "../../assets/scss/support";
+.page {
+	color: #000;
+	height: 100%;
+	padding: 0 115px;
+	text-align: center;
+}
+.login {
+	padding-top: 200px;
+}
+.logo {
+	width: 230px;
+	height: 230px;
+}
+.login-title {
+	font-size: 100px;
+	margin-top: 90px;
+	font-weight: 700;
+}
+.login-title::after {
+	content: '';
+	display: block;
+	height: 10px;
+	width: 80px;
+	margin: 64px auto;
+	background-color: #000;
+}
+.hint {
+	font-size: 48px;
+}
+.btn1 {
+	margin-top: 200px;
+}
+.login-foot {
+	color: #b1b2b3;
+	font-size: 42px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 0 115px 200px;
+}
+.foot-title {
+	letter-spacing: 4px;
+}
+.foot-items {
+	display: flex;
+	justify-content: space-between;
+}
+.foot-items>view {
+	width: 22%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.foot-items .icon {
+	width: 60px;
+	height: 60px;
+	margin: 116px 0 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.foot-items .iconfont {
+	font-size: 60px;
+}

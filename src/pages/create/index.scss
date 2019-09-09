@@ -1,0 +1,72 @@
+// 支持文件
+@import "../../assets/scss/support";
+.full-box {
+	padding: 0 48px;
+}
+
+.title-box {
+	padding-bottom: 83px;
+}
+.title {
+	font-size: 68px;
+	line-height: 1;
+	padding-top: 50px;
+	padding-bottom: 60px;
+	font-weight: 700;
+}
+.describe {
+	color: #303133;
+	font-size: 42px;
+	line-height: 1;
+	padding-bottom: 13px;
+}
+.form-create {
+	display: block;
+	padding-left: 48px;
+}
+.form-item {
+	height: 160px;
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	border-bottom: 1px solid #e3e4e5;
+}
+.focus {
+	border-color: #177ee6;
+}
+.form-label {
+	width: 288px;
+	font-size: 51px;
+}
+.form-input {
+	flex: 1;
+	height: 100%;
+	font-size: 51px;
+	display: flex;
+	align-items: center;
+}
+.input-btn {
+	padding: 0;
+	width: 100%;
+	text-align: left;
+	box-shadow: none;
+	background-color: transparent;
+}
+.input-btn::after {
+	border: none;
+}
+.holder {
+	font-size: 51px;
+	color: rgb(128, 128, 128);
+}
+.form-submit {
+	color: #fff;
+	margin: 160px 48px 56px 0;
+	background-color: #177ee6;
+	box-shadow: 0px 5px 20px 0px rgba(3, 101, 200, 0.5);
+}
+.form-submit[disabled]:not([type]) {
+	color: #fff;
+	background-color: rgba(23, 126, 230, 0.2);
+	box-shadow: 0px 5px 20px 0px rgba(3, 101, 200, 0.2);
+}

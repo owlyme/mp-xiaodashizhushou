@@ -1,0 +1,40 @@
+<!-- 选择地址组件 -->
+<wxs src="../wxs/utils.wxs" module="filter" />
+<view class="site-selected" bind:tap="open">
+	<slot></slot>
+</view>
+
+<view class="site-mask" wx:if="{{showSite}}" bind:tap="cancel">
+	<view class="site-box" catch:tap>
+		<view class="site-btns">
+			<view bind:tap="cancel">取消</view>
+			<view bind:tap="enter">确定</view>
+		</view>
+		<!-- 选择地址部分 -->
+		<picker-view class="site" bind:change="siteChange" value="{{select}}">
+			<picker-view-column>
+				<view
+					wx:for="{{sites[0]}}"
+					wx:key="{{item.itemValue}}"
+					style="line-height: 34px; font-size: {{filter.filtSize(item.itemName)}};"
+				>{{item.itemName}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view
+					wx:for="{{sites[1]}}"
+					wx:key="{{item.itemValue}}"
+					style="line-height: 34px; font-size: {{filter.filtSize(item.itemName)}};"
+				>{{item.itemName}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view
+					wx:for="{{sites[2]}}"
+					wx:key="{{item.itemValue}}"
+					style="line-height: 34px; font-size: {{filter.filtSize(item.itemName)}};"
+				>{{item.itemName}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+
+

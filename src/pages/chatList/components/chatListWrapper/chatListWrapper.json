@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "markTags": "../markTags/markTags",
+    "infoContent": "../infoContentChatList/infoContent",
+    "noData": "../noData/index",
+    "timeFilter": "../../../../components/timeFilter/index",
+    "swipeCell": "../../../../components/vant/swipe-cell/index"
+  }
+}

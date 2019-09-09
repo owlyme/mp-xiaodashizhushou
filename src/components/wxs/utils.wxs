@@ -1,0 +1,82 @@
+// 格式化性别
+function formatSex(sex) {
+	var SEX = [
+		{
+			icon: 'iconweizhixingbie',
+			color: '#666'
+		},
+		{
+			icon: 'iconicon-male',
+			color: '#409fff'
+		},
+		{
+			icon: 'iconicon-female',
+			color: 'rgb(255, 111, 78)'
+		}
+	]
+	return SEX[sex]
+}
+// 关注
+function formatSubscribe(subscribe) {
+	var SUBS = [
+		{
+			txt: '已取消',
+			color: '#606366'
+		},
+		{
+			txt: '已关注',
+			color: '#329800'
+		}
+	]
+	return SUBS[subscribe]
+}
+// 来源
+function formatScene(data) {
+	var SCENE = {
+		ADD_SCENE_SEARCH: '搜索公众号',
+		ADD_SCENE_ACCOUNT_MIGRATION: '公众号迁移',
+		ADD_SCENE_PROFILE_CARD: '名片分享',
+		ADD_SCENE_QR_CODE: '扫描二维码',
+		ADD_SCENE_PROFILE_LINK: '图文页内名称点击',
+		ADD_SCENE_PROFILE_ITEM: '图文页右上角菜单',
+		ADD_SCENE_PAID: '支付后关注',
+		ADD_SCENE_OTHERS: '其他',
+		ADD_SCENE_UNKNOWN_CHANNEL_QR_CODE: '未知渠道二维码',
+		ADD_SCENE_UNKNOWN_FANS_POSTER: '未知裂变海报'
+	}
+	return data.specificSourceName || SCENE[data.subscribeScene]
+}
+
+// 格式化轨迹标题
+function formatTrackTitle(code) {
+	var TITLE = {
+		subscribe: '关注公众号',
+		unsubscribe: '取消关注',
+		SCAN: '扫码',
+		LOCATION: '当前位置',
+		CLICK: '点击菜单'
+	}
+	return TITLE[code] || '发消息'
+}
+
+// 格式化字体大小 name: 文本 base: 基准值(750/1242*设计值) len: 基准字数
+function filtSize(name, base = 36, length = 6) {
+	var size = base
+	var len = name.length
+	if (len > length) {
+		size = base * length / len
+	}
+	return size + 'rpx'
+}
+
+function includes(array, item) {
+	return array.includes(item)
+}
+module.exports = {
+	formatSex: formatSex,
+	formatSubscribe: formatSubscribe,
+	formatScene: formatScene,
+	formatTrackTitle: formatTrackTitle,
+	filtSize: filtSize,
+	include: includes
+}

@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="page">
+	<top mode="easy" backType="back" photo="{{photo}}" catch:back="back">首页</top>
+	<!-- <image class="" src="../../assets/images/p/prev.png" lazy-load="false" binderror="" bindload=""></image> -->
+</view>

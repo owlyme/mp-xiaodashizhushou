@@ -1,0 +1,15 @@
+@import "../../../assets/scss/iconfont.scss";
+.input-box {
+	width: 100%;
+	padding-right: 48px;
+	display: flex;
+	align-items: center;
+}
+.input-box>input {
+	flex: 1;
+	padding-right: 180px;
+}
+.icon {
+	color: #cdcdcd;
+	font-size: 50px;
+}

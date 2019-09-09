@@ -1,0 +1,16 @@
+
+.rich-text {
+	word-break: break-all;
+	.info-key {
+		.no_wrap {
+			color: #979899;
+			margin-right: 5px;
+			vertical-align: top;
+			max-width: 150px;
+			display: inline-block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+}

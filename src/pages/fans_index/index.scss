@@ -1,0 +1,226 @@
+@import "../../assets/scss/support";
+.iconfont {
+	font-size: 36px;
+}
+.fans {
+	margin-bottom: 220px;
+}
+
+.markTags {
+	margin-left: 30px;
+	border-radius: 10px;
+	height: 48px;
+	padding: 8px;
+	line-height: 48px;
+	color: #fefefe;
+	&.xiezuo {
+		background-color: #09bb07;
+		&:after {
+			content:'协作';
+		}
+	}
+	&.xin {
+		background-color: #e64340;
+		&:after {
+			content:'新';
+		}
+	}
+	&.laifang {
+		background-color: #ff7700;
+		&:after {
+			content:'来访';
+		}
+	}
+	&.beixiezuo {
+		background-color: #09bb07;
+		&:after {
+			content:'被协作';
+		}
+	}
+}
+.app__inner {
+	padding: 48px 48px 250px;
+	.fans-card {
+		background-color: #ffffff;
+		box-shadow: 0px 10px 38px 0px	rgba(0, 0, 0, 0.1);
+		border-radius: 27px;
+		border: solid 1px #f5f6f7;
+		margin-bottom: 140px;
+		.fans-inner {
+			align-items: center;
+			padding: 66px;
+		}
+		.fans-wxname {
+			font-size: 84px;
+			font-weight: bold;
+			@include text-overflow;
+		}
+		.fans-txt {
+			margin-top: 12px;
+			font-size: 36px;
+			color: #7e7f80;
+			@include text-overflow;
+			.fans-txt-label {
+				display: inline-block;
+				width: 64rpx;
+				text-align: justify;
+				text-align-last: justify;
+			}
+		}
+		.fans-tag view {
+			display: inline-block;
+		}
+		.fans-sex {
+			font-size: 48px;
+		}
+		.fans-status {
+			margin-left: 30px;
+			color: #fff;
+			height: 48px;
+			line-height: 48px;
+			border-radius: 10px;
+			padding: 8px 10px;
+		}
+		.fans-avatar {
+			margin-left: 56px;
+			font-size: 0;
+			image {
+				width: 288px;
+				height: 288px;
+				border-radius: 20px;
+			}
+		}
+		.fans-bottom {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 36px 70px;
+			font-size: 51px;
+			font-weight: 500;
+			.fans-mobile {
+				color: #177ee6;
+				margin-right: 42px;
+			}
+			// .fans-name {
+			// 	font-weight: bold;
+			// }
+		}
+	}
+	.fans-tags {
+		margin-bottom: 100px;
+		.fans-tags-head {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 51px;
+			color: #303133;
+			margin-bottom: 70px;
+			.fans-tags-action {
+				display: flex;
+				align-items: center;
+				padding: 0 15px;
+				font-size: 42px;
+				color: #7e7f80;
+				.van-icon {
+					display: block;
+					margin-left: 24px;
+				}
+			}
+		}
+		.fans-tags-inner {
+			// flex-wrap: wrap;
+			text-overflow: -o-ellipsis-lastline;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			-webkit-box-orient: vertical;
+			.u-tag {
+				margin: 0 40px 40px 0;
+			}
+		}
+	}
+	.fans-tags-popup {
+		padding: 100px 48px;
+		.fans-tags-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 72px;
+			.iconfont {
+				font-size: 54px;
+				color: #cacbcc;
+			}
+		}
+		.fans-tags-cont {
+			margin-top: 120px;
+		}
+	}
+	.fans-cells {
+		position: relative;
+		color: #303133;
+		.fans-cell {
+			position: relative;
+			align-items: center;
+			padding-left: 0px;
+			margin-left: 60px;
+			height: 180px;
+			.iconfont {
+				width: 60px;
+				text-align: center;
+				transform: translateX(-60px);
+				color: #177ee5;
+				font-size: 51px;
+				&.iconkefuzuoxi, &.iconguiji {
+					transform: translateX(-60px);
+					font-size: 60px;
+				}
+			}
+			.van-cell__title {
+				font-size: 51px;
+			}
+			.van-cell__value {
+				font-size: 42px
+			}
+		}
+		.van-cell__right-icon-wrap {
+			margin-left: 24px;
+		}
+		.fans-service {
+			color: #303133;
+			.zhuanshu {
+				display: inline-block;
+				padding: 0 20px;
+				margin-right: 30px;
+				height: 73px;
+				line-height: 73px;
+				background-color: #7e7f7f;
+				font-size: 36px;
+				color: #ffffff;
+				vertical-align: middle;
+				border-radius: 6px;
+				border: none;
+				outline: none;
+				&.active {
+					background-color: #177ee5;
+				}
+			}
+		}
+	}
+}
+.app__bottom {
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.05);
+	width: 100%;
+	box-sizing: border-box;
+	padding: 40px 70px;
+	background: #fff;
+	button {
+		box-shadow: 0px 5px 20px 0px	rgba(3, 101, 200, 0.5);
+	}
+}
+.app__bottom.app__bottom__IPX {
+	padding-bottom: 96px;
+}

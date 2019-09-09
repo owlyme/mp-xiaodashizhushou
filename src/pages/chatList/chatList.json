@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "chatType": "./components/chatType/chatType",
+    "chatListWrapper": "./components/chatListWrapper/chatListWrapper"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "会话"
+}

@@ -1,0 +1,13 @@
+<view class='page-wrap'>
+		<top mode="easy" backType="back">视频</top>
+		<view class="video" hover-class="none" hover-stop-propagation="false">
+			<video id="myVideo" src="{{src}}" direction="{{0}}" autoplay="{{true}}" bindfullscreenchange="videofullchange" bindended="bindended" bindwaiting="bindwaiting" custom-cache="{{false}}">
+				<!-- <view class="controls">
+					<view class="video-close" bindtap="bind_close_video">
+						<image class="img" src="%ASSETS_IMG%/images/public/login_logo@3x.png" />
+					</view>
+				</view> -->
+			</video>
+		</view>
+</view>
+

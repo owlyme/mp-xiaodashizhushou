@@ -1,0 +1,7 @@
+<!--页面描述-->
+<view class="infoContentChatList">
+	<view class="noText" wx:if="{{item.messageBody.msgBodyType !== 'TEXT'}}">{{nodes}}</view>
+	<rich-text wx:else class="rich-text" nodes="{{nodes}}">
+	</rich-text>
+</view>
+

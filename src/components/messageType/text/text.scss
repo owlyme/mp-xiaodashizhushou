@@ -1,0 +1,38 @@
+.text-inner {
+	max-width: 658px;
+	padding: 30px 34px;
+	border-radius: 10px;
+	line-height: 60px;
+	min-height: 60px;
+	font-size: 51px;
+	position: relative;
+}
+.rich-text{
+	word-wrap:break-word;
+}
+.fail {
+	margin-top: -33px;
+	top: 50%;
+	position: absolute;
+	// background: #fff;
+	border-radius: 66px;
+	font-size: 70px;
+	width: 66px;
+	height: 66px;
+	line-height: 66px;
+	color: #e64340;
+}
+.type-white {
+	background-color: #ffffff;
+	color: #303133;
+	.fail {
+		right: -70px;
+	}
+}
+.type-blue {
+	background-color: #177ee5;
+	color:  #ffffff;
+	.fail {
+		left: -70px;
+	}
+}

@@ -1,0 +1,16 @@
+<u-backbar title="{{isVisible ? '修改标签': ''}}"></u-backbar>
+<view class="app group">
+		<view class="app__inner">
+				<view class="u-mt-large app__title" id="app_title">修改标签</view>
+				<view class="app__cont">
+						<vant-collapse value="{{collapse}}" bind:change="onCollapseChange">
+								<vant-collapse-item title="{{item.name}}" border="{{false}}" wx:for="{{list}}" wx:key="{{item.id}}">
+									<u-tags parentValue="{{value}}" tags="{{tag}}" bind:toggle="toggle" data-key="{{tag.tagId}}" data-groupId="{{item.id}}" data-type="{{item.specialGroup}}" wx:for="{{item.fansWxTagDtos}}" wx:for-item="tag" wx:key="tag.tagId"></u-tags>
+								</vant-collapse-item>
+						</vant-collapse>
+				</view>
+		</view>
+		<view class="app__bottom {{isIPX && 'app__bottom__IPX' }}" wx:if="{{dataLoading}}">
+				<button class="weui-btn" bind:tap="save" type="primary">保存</button>
+		</view>
+</view>

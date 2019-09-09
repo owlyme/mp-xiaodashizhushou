@@ -1,0 +1,28 @@
+// 支持文件
+@import "../../../../assets/scss/iconfont";
+.no-data {
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	height: 100%;
+	top: 140px;
+	left: 0;
+	.no-data-img {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.no-data-icon {
+			text-align: center;
+			.iconxiaoxicopyx {
+				color: #d4d5d6;
+				font-size: 197px;
+			}
+		}
+		.no-data-tips {
+			color: #b1b2b3;
+			font-size: 51px;
+			margin-top: 35px;
+		}
+	}
+}

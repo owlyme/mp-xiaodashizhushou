@@ -1,0 +1,14 @@
+.u-toggle-tag {
+	display: inline-block;
+	padding: 35px 48px;
+	background-color: #f5f6f7;
+	border-radius: 10px;
+	color: #484a4d;
+	font-size: 42px;
+	margin-right: 47px;
+	margin-top: 46px;
+	&_active {
+		background-color: #177ee5;
+		color: #fff;
+	}
+}

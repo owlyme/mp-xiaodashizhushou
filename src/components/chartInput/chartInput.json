@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "emoji": "../emoji/emoji",
+    "record": "../record/record"
+  }
+}

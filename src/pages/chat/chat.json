@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "chat",
+  "usingComponents" : {
+    "scroll": "./scroll/index"
+  }
+}

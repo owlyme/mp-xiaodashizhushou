@@ -1,0 +1,21 @@
+<!--components/temp/temp.wxml-->
+<view class="voice" hover-class="none" hover-stop-propagation="false">
+	<view class="voice-inner  {{ msgBody.source ? 'type-white' : 'type-blue' }}"
+	style="width: {{duration + 30}}%"
+	bindtouchstart="playVoice">
+		<view class="weui-loadmore loading" wx:if="{{uploadStatus == 'begin'}}">
+			<view class="weui-loading"></view>
+		</view>
+		<text class="text1 iconfont iconxiazaishibai fail"
+		wx:if="{{uploadStatus == 'fail' && !msgBody.source  || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"
+		></text>
+		<view class="iconfont {{voiceFont}} voicestyle">
+			<text class="text2">{{duration  + 1 }}''</text>
+			<!-- wx:if="{{tempFilePath}}" -->
+			<!-- <text wx:el>资源路径丢失</text> -->
+		</view>
+	</view>
+</view>

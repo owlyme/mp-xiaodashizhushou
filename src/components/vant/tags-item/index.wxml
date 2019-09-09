@@ -1,0 +1,3 @@
+<view class="u-toggle-tag {{checked && 'u-toggle-tag_active'}}" bindtap="toggle">
+		{{tags.tagName}}
+</view>

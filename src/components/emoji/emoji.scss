@@ -1,0 +1,16 @@
+.swiper-container{
+	background: #f6f6f6;
+	height: 621px;
+}
+.swiper-inner {
+	background: #f6f6f6;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 75px 45px;
+	.emoji {
+		display: block;
+		width: 76px;
+		height: 76px;
+		margin: 35.5px 25.5px;
+	}
+}

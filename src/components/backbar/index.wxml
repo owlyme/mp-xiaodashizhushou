@@ -1,0 +1,8 @@
+<u-top>
+		<view class='u-backbar-action van-hairline--surround'>
+				<view class="iconfont iconfanhui" hover-class="none" catchtap='onBack' />
+				<view class="iconfont iconzhuye" hover-class="none" catchtap='onIndex'>
+				</view>
+		</view>
+		<view class="u-backbar-title">{{title}}</view>
+</u-top>

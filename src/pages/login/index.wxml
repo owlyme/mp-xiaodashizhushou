@@ -1,0 +1,45 @@
+<view class="page" style="height: {{global.systemInfo.screenHeight}}">
+	<top mode="easy"></top>
+	<view class="login">
+		<image class="logo" src="%ASSETS_IMG%/images/public/login_logo@3x.png"></image>
+    <view class="login-title">欢迎来到销大师</view>
+		<view class="hint">初次使用小程序请先登录</view>
+		<button class="btn1" open-type="getUserInfo" bind:getuserinfo="loginTap">
+			<text class="icon iconfont iconweixin"></text>
+			微信登录
+		</button>
+
+		<!-- 底部 -->
+		<view class="login-foot">
+			<view class="foot-title">销大师，微信裂变营销专家</view>
+			<view class="foot-items">
+				<view>
+					<view class="icon">
+						<text class="iconfont iconliebian-"></text>
+					</view>
+					<text>裂变式增长</text>
+				</view>
+				<view>
+					<view class="icon">
+						<text class="iconfont iconjingzhun-"></text>
+					</view>
+					<text>精准化营销</text>
+				</view>
+				<view>
+					<view class="icon">
+						<text class="iconfont iconfensi-"></text>
+					</view>
+					<text>连接粉丝</text>
+				</view>
+				<view>
+					<view class="icon">
+						<text class="iconfont iconchengjiao-"></text>
+					</view>
+					<text>成交客户</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<loading hidden="{{!load}}">登录中</loading>
+</view>

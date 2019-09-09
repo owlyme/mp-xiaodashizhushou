@@ -1,0 +1,4 @@
+<!--页面描述-->
+<view class="filter-time">
+  {{filterTime}}
+</view>

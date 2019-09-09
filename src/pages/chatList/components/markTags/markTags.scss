@@ -1,0 +1,36 @@
+.markTags {
+	border-radius: 10px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 33px;
+	color: #fefefe;
+	margin-top: 10px;
+	&.xiezuo {
+		background-color: #09bb07;
+		padding:8px;
+		&:after {
+			content:'协作';
+		}
+	}
+	&.xin {
+		background-color: #e64340;
+		padding:8px;
+		&:after {
+			content:'新';
+		}
+	}
+	&.laifang {
+		background-color: #ff7700;
+		padding:8px;
+		&:after {
+			content:'来访';
+		}
+	}
+	&.beixiezuo {
+		background-color: #09bb07;
+		padding:8px;
+		&:after {
+			content:'被协作';
+		}
+	}
+}

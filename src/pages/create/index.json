@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "site": "/components/site/index",
+      "input-clear": "./inputClear/index"
+  }
+}

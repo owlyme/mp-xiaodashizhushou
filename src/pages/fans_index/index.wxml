@@ -1,0 +1,92 @@
+<wxs src="../../components/wxs/utils.wxs" module="utils" />
+<u-backbar></u-backbar>
+<view class="app fans">
+		<view class="app__inner">
+				<view class="fans-card">
+						<view class="u-flex fans-inner van-hairline--bottom">
+								<view class="u-flex-item">
+										<view class="fans-wxname">{{data.nickName}}</view>
+										<view class="fans-tag">
+												<view class="fans-sex iconfont {{utils.formatSex(data.sex).icon}}" style="color: {{utils.formatSex(data.sex).color}}"></view>
+												<view class="markTags {{status}}" wx:if="{{status}}"></view>
+												<view class="fans-status" style="background-color: {{utils.formatSubscribe(data.subscribe).color}}">
+														{{utils.formatSubscribe(data.subscribe).txt}}
+												</view>
+										</view>
+										<view class="fans-txt"> <view class="fans-txt-label">公众号</view>：{{data.accountName}}</view>
+										<view class="fans-txt"><view class="fans-txt-label">来  源</view>：{{utils.formatScene(data)}}</view>
+								</view>
+								<view class="fans-avatar" bind:tap="previewImage" data-image="{{data.headImgUrl}}">
+										<image src="{{data.headImgUrl}}" />
+								</view>
+						</view>
+						<view class="fans-bottom" bind:tap="navagateProfile">
+								<view class="fans-name u-overflow" style="flex: 1">{{data.name || '无'}}</view>
+								<view class="fans-mobile" catch:tap="callPhone" data-phone="{{data.phone}}">
+										{{data.formatphone}}
+								</view>
+								<vant-icon name="arrow" size="14px" color="#b1b2b2"></vant-icon>
+						</view>
+				</view>
+				<view class="fans-tags">
+						<view class="fans-tags-head">
+								<view class="fans-tags-title">标签</view>
+								<navigator wx:if="{{canAction}}" url="/pages/fans_tag/index{{param}}&tagIds={{tagIds}}" hover-class="navigator-hover">
+										<view class="fans-tags-action">
+												<view>修改</view>
+												<vant-icon name="arrow" size="14px" color="#b1b2b2"></vant-icon>
+										</view>
+								</navigator>
+						</view>
+						<view class="fans-tags-inner">
+								<view bind:tap="toggleBottomPopup">
+										<view class="u-tag" wx:for="{{data.fansWxTagDtos}}" wx:key="item.id" style="background-color: {{item.color}}">
+												{{item.tagName}}
+										</view>
+								</view>
+								<vant-popup show="{{showPopup}}" overlay-style="background: rgba(0,0,0,0.4)" position="bottom" custom-class="bottom" bind:close="toggleBottomPopup">
+										<view class="fans-tags-popup">
+												<view class="fans-tags-header">
+														<view style="font-weight: bold">全部粉丝标签</view>
+														<view class="iconfont iconsegi-icon-close" bind:tap="toggleBottomPopup"></view>
+												</view>
+												<view class="fans-tags-cont">
+														<view class="u-tag" wx:for="{{data.fansWxTagDtos}}" wx:key="item.id" style="background-color: {{item.color}}">
+																{{item.tagName}}
+														</view>
+												</view>
+										</view>
+								</vant-popup>
+						</view>
+				</view>
+				<view class="u-cells fans-cells">
+						<vant-cell title="所属分组" custom-class="fans-cell" is-link="{{canAction && groupUrl }}" url="{{groupUrl}}">
+								<view class="iconfont iconfenzu" slot="icon"></view>
+								<view>{{data.kfFansGroupName || '无'}}</view>
+						</vant-cell>
+						<vant-cell title="所属客服" custom-class="fans-cell" is-link="{{canAction}}" url="{{seatUrl}}">
+								<view class="iconfont iconkefuzuoxi" slot="icon"></view>
+								<view class="fans-service">
+										{{data.eeName || '无'}}
+										<block wx:if="{{canAction}}">
+												<view class="zhuanshu" catch:tap="setZhuanshu" data-status="0" wx:if="{{data.isExclusiveKf === 1}}">
+														取消专属
+												</view>
+												<view class="zhuanshu active" catch:tap="setZhuanshu" data-status="1" wx:else>
+														设为专属
+												</view>
+										</block>
+								</view>
+						</vant-cell>
+						<vant-cell title="互动统计" custom-class="fans-cell" is-link url="/pages/fans_conv/index{{param}}">
+								<view class="iconfont icontongji" slot="icon"></view>
+						</vant-cell>
+						<vant-cell title="粉丝轨迹" custom-class="fans-cell" is-link url="/pages/fans_track/index{{param}}">
+								<view class="iconfont iconguiji" slot="icon"></view>
+						</vant-cell>
+				</view>
+		</view>
+		<view class="app__bottom {{isIPX && 'app__bottom__IPX' }}" wx:if="{{canAction}}">
+				<button class="weui-btn" type="primary" bind:tap="sendMsg">发消息</button>
+		</view>
+</view>

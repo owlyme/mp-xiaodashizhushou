@@ -1,0 +1,58 @@
+<wxs src="../../../pages/chatList/chatList.wxs" module="tools" />
+<view class="msg-container {{ msgData.source ? '' : 'right-side'}} " hover-class="none" hover-stop-propagation="false">
+	<view class="msg-avatar" style="order: {{ msgData.source ? 0 : 2}}" bind:tap="touchAvatar">
+		<image class="msgimage" wx:if="{{headUrl}}" src="{{headUrl}}" lazy-load="{{true}}"/>
+		<view wx:else class="iconfont iconwutouxiang"></view>
+	</view>
+	<view  class="msg-body"	>
+		<view class="msg-time">
+			<timeFilter type="content" createTime="{{msgData.messageBody.createTime}}"></timeFilter>
+		</view>
+		<view class="msg-content {{ !msgData.source ? 'flex-end' : '' }}" >
+			<text class="iconfont iconjiantou" wx:if="{{msgData.messageBody.msgBodyType == 'TEXT' || msgData.messageBody.msgBodyType == 'VOICE'}}"></text>
+
+			<!-- 文字 -->
+			<textmsg
+
+			wx:if="{{msgData.messageBody.msgBodyType == 'TEXT'}}"
+			source="{{msgData.source}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"
+			></textmsg>
+			<!-- 图片 -->
+			<imagemsg wx:elif="{{msgData.messageBody.msgBodyType == 'IMAGE'}}"
+			source="{{msgData.source}}"
+			msgBody="{{msgData}}"
+			bind:imageloadedEvent="imageloadedEvent"
+			bind:popoverEvent="popoverEvent"></imagemsg>
+			<!-- 语音 -->
+			<voicemsg
+			wx:elif="{{msgData.messageBody.msgBodyType == 'VOICE'}}"
+			source="{{msgData.source}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"
+			></voicemsg>
+			<!-- 视频 -->
+			<videomsg wx:elif="{{msgData.messageBody.msgBodyType == 'VIDEO'}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"></videomsg>
+			<!-- 文件 -->
+			<filemsg wx:elif="{{msgData.messageBody.msgBodyType == 'LINK'}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"></filemsg>
+			<!-- 图文 -->
+			<newsmsg wx:elif="{{msgData.messageBody.msgBodyType == 'MPNEWS'}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"></newsmsg>
+			<!-- 模板 -->
+			<tempmsg wx:elif="{{msgData.messageBody.msgBodyType == 'TEMPLATE'}}"
+			msgBody="{{msgData}}"
+			bind:popoverEvent="popoverEvent"></tempmsg>
+			<!-- 连接消息 -->
+			<tempLink wx:elif="{{msgData.messageBody.msgBodyType == 'NEWLINK'}}"
+			msgBody="{{msgData}}"></tempLink>
+		</view>
+	</view>
+</view>
+
+

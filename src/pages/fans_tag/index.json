@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black",
+  "usingComponents" : {
+    "u-tags": "../../components/vant/tags-item/index",
+    "u-backbar": "../../components/backbar/index"
+  }
+}

@@ -1,0 +1,17 @@
+<view id="chatList">
+	<top mode="easy"
+	backType="back"
+	onLineStatus="{{store.chatList.seatInfo.onLineStatus}}"
+	photo="{{store.chatList.seatInfo.picUrl}}"
+	catch:photoTap="back">会话</top>
+	<view class="chatType-wrapper">
+		<chatType watchChatTypeStatu="{{store.chatList.watchChatTypeStatu}}" chatTypeList="{{store.chatList.chatTypeList}}" bindwatchChatType="watchChatType" activeType="{{store.chatList.chatType}}" type="{{store.chatList.activeLabelType}}" bindchangeChatType="changeChatType" bindchangeActiveLabelType="changeActiveLabelType" bindgetConversationListCount="getConversationListCount"></chatType>
+	</view>
+	<view class="chatList-wrapper">
+		<chatListWrapper chatListData="{{chatListData}}" chattingListData="{{chattingListData}}" bindchatListComponentReady="chatListComponentReady" bindgetFansDetail="getFansDetail" bindcloseConversating="closeConversating" bindgetChatMessage="getChatMessage"></chatListWrapper>
+		<view class="weui-loadmore loadmore" wx:if="{{loadingStatu === 2}}">
+			<view class="weui-loading"></view>
+			<view class="weui-loadmore__tips loading-text">努力加载中...</view>
+		</view>
+	</view>
+</view>

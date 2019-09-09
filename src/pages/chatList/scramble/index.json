@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "markTags": "../components/markTags/markTags",
+    "infoContent": "../components/infoContent/infoContent",
+    "noData": "../components/noData/index",
+    "timeFilter": "../../../components/timeFilter/index"
+  }
+}

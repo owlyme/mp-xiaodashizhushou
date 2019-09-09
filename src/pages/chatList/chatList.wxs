@@ -1,0 +1,70 @@
+var showData = function(chatList, chattingListData, chatListData) {
+	if (chatList) {
+		if (
+			chatListData.length > 0 ||
+			chattingListData.length > 0 ||
+			chatList.watchChatTypeStatu === 2
+		) {
+			return true;
+		} else {
+			return showScramble(chatList);
+		}
+	}
+};
+var showChatList = function(chatList, item) {
+	if (chatList.chatType !== 'chattingList') {
+		return true;
+	}
+	if (
+		item.convrOwnerSeatId === chatList.seatInfo.seatId ||
+		(item.assistSeatIds &&
+			item.assistSeatIds.split(',').indexOf(chatList.seatInfo.seatId + '') >= 0)
+	) {
+		return true;
+	}
+	return false;
+};
+var showScramble = function(chatList) {
+	if (chatList) {
+		if (chatList.chatType === 'chattingList') {
+			if (chatList.scrambleTotal > 0) {
+				return true;
+			} else if (chatList.seatInfo.allocationModel === '0') {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+};
+var urlFilter = function(src) {
+	if (src && src.indexOf('myqcloud.com') >= 0) {
+		// 腾讯云地址
+		if (src.indexOf('https://') > 0) {
+			return src;
+		} else {
+			return 'https://' + src;
+		}
+	} else if (src && src.indexOf('/') === 0) {
+		return 'http://' + wx.getStorageSync('urlRequestName') + src;
+	} else {
+		return src;
+	}
+};
+
+var wantedList = function(chatList) {
+	if (chatList.chatType === 'chattingList') {
+		return chatList.chattingListData;
+	}
+	return chatList.chatListData;
+};
+
+module.exports = {
+	urlFilter: urlFilter,
+	showScramble: showScramble,
+	showData: showData,
+	showChatList: showChatList,
+	wantedList: wantedList
+};

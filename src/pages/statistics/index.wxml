@@ -1,0 +1,31 @@
+<!--数据页-->
+<view class="page">
+	<top mode="easy"></top>
+	<view class="title">统计</view>
+
+	<view class="data-card">
+		<view class="card-title">今日数据</view>
+		<view class="card-list">
+			<block wx:for="{{today}}" wx:for-index="dex"  wx:key="dex" >
+				<view class="card-item">
+					<view class="number">{{item.val}}</view>
+					<view>{{item.txt}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+	<view class="data-card">
+		<view class="card-title">累计数据</view>
+		<view class="card-list">
+			<block wx:for="{{total}}" wx:for-index="dex" wx:key="dex">
+				<view class="card-item">
+					<view class="number">{{item.val}}</view>
+					<view>{{item.txt}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+	<view class="data-text">更多详情数据，请电脑访问销大师查看www.xiaodashi.com</view>
+</view>

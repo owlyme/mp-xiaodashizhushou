@@ -1,0 +1,10 @@
+.infoContentChatList {
+	.noText {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}
+.rich-text {
+	word-break: break-all;
+}

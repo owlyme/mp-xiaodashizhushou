@@ -1,0 +1,2 @@
+<view class="markTags {{markClass}}" bindtap="test">
+</view>

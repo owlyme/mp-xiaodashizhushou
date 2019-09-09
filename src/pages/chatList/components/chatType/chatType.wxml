@@ -1,0 +1,18 @@
+<view class="chatType clearfix van-hairline--bottom" style="top:{{topHeight + statusBarHeight}}px;">
+	<view class="type-part {{activeType === 'chattingList' ? 'active' : ''}}">
+		<view class="text">
+			<text class="tap-text" bindtap="changeChatType" data-chattype="chattingList">正在会话中</text>
+		</view>
+		<view class="line"></view>
+	</view>
+
+	<view class="type-part {{activeType !== 'chattingList' ? 'active' : 'activf'}}">
+		<view class="text">
+			<view bindtap="toggleChatType" class="tap-text">
+				<text class="type-text">{{type.name}}</text>
+				<view class="iconfont iconxiala"></view>
+			</view>
+		</view>
+		<view class="line"></view>
+	</view>
+</view>

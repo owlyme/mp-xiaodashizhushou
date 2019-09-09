@@ -1,0 +1,32 @@
+.u-backbar-action {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	width: 90px;
+	height: 32px;
+	margin-left: 10px;
+	background-color: #ffffff;
+	border-radius: 48px;
+	/* border: solid 1px #e3e4e5; */
+}
+.u-backbar-action::after {
+	border-radius: 48px;
+	border-color: #e3e4e5;
+}
+.u-backbar-action .iconfont {
+	display: inline-block;
+	font-size: 17px;
+	color: #000;
+	width: 45px;
+	line-height: 22px;
+	text-align: center;
+}
+.u-backbar-action .iconfont:last-of-type {
+	border-left: solid 1px rgba(0,0,0,0.2);
+}
+.u-backbar-title {
+	width: 100%;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 700;
+}

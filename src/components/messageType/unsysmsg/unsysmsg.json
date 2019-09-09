@@ -1,0 +1,14 @@
+{
+  "component": true,
+  "usingComponents": {
+    "textmsg": "../text/text",
+    "imagemsg": "../image/image",
+    "voicemsg": "../voice/voice",
+    "videomsg": "../video/video",
+    "filemsg": "../file/file",
+    "newsmsg": "../news/news",
+    "tempmsg": "../temp/temp",
+    "timeFilter": "../../timeFilter/index",
+    "tempLink": "../link/link"
+  }
+}

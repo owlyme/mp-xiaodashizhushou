@@ -1,0 +1,17 @@
+<u-backbar title="{{isVisible ? '所属客服': ''}}"></u-backbar>
+<view class="app group">
+		<view class="app__inner">
+				<view class="u-mt-large app__title" id="app_title">所属客服</view>
+				<view class="app__cont" wx:if="{{dataLoading}}">
+						<view class="u-flex group-list">
+								<view class="group-item van-hairline--bottom" wx:for="{{list}}" wx:key="{{item.id}}" bindtap="select" data-group="{{item}}">
+										<view class="group-itemL">{{item.eeName || '--'}}({{item.seatNo}})</view>
+										<view class="iconfont iconduigou" wx:if="{{item.id === curSeat.id}}"></view>
+								</view>
+						</view>
+				</view>
+		</view>
+		<view class="app__bottom {{isIPX && 'app__bottom__IPX' }}">
+				<button class="btn" type="primary" loading="{{loading}}" bindtap="save">保存</button>
+		</view>
+</view>

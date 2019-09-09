@@ -1,0 +1,15 @@
+.popover-item {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	color: #b1b2b3;
+}
+.popover-item-hover {
+  background-color: #EEE;
+}
+.underline{
+  border-bottom:1px #EEE solid;
+}

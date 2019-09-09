@@ -1,0 +1,11 @@
+<!--components/temp/temp.wxml-->
+<view class="text-container" >
+	<view class="text-inner {{ msgBody.source ? 'type-white' : 'type-blue' }}" >
+		<text class="iconfont iconxiazaishibai fail" wx:if="{{sendStatus == 'fail' || !msgBody.status}}"
+		bind:touchstart="popoverFn"
+		bind:touchend="popoverFn"
+		 id="a{{msgBody.messageBody.msgId}}"
+		></text>
+		<rich-text nodes="{{html}}" class="rich-text"></rich-text>
+	</view>
+</view>

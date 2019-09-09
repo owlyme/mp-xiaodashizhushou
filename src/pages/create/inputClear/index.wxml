@@ -1,0 +1,17 @@
+<!-- 带清空按钮的输入框组件 -->
+<view class="input-box">
+	<input
+		bindinput="input"
+		bindfocus="focus"
+		bindblur="blur"
+		data-item="{{item}}"
+		value="{{item.val}}"
+		placeholder="{{item.holder}}"
+	/>
+	<text
+		hidden="{{!item.val || !hasFocus}}"
+		class="icon iconfont iconqingchu"
+		data-item="{{item}}"
+		bindtap="clean"
+	></text>
+</view>

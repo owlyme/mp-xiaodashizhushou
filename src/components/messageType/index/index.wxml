@@ -1,0 +1,15 @@
+
+<view class="" id="M{{msgData.messageBody.msgId}}" >
+	<!-- 系统提示 -->
+	<block wx:if="{{msgData.messageBody.msgBodyType === 'EVENT'}}">
+		<sysmsg msgData="{{msgData}}" id=""></sysmsg>
+	</block>
+	<!-- 非系统提示 -->
+	<block wx:else>
+		<unsysmsg msgData="{{msgData}}"
+		bind:imageloadedEvent="pageReady"
+		bind:touchAvatar="touchAvatar"
+		bind:popoverEvent="popoverEvent"
+		></unsysmsg>
+	</block>
+</view>

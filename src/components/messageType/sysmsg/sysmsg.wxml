@@ -1,0 +1,86 @@
+<view class="sys-container">
+	<!-- 有横线 -->
+	<!-- <view class="flex">
+		<view class="line"></view>
+		<view class="text-s">
+			2019年5月29日
+		</view>
+		<view class="line"></view>
+	</view> -->
+	<!-- 粉丝发起会话 -->
+	<view class="flex-col">
+		<view class="text-s">
+			<timeFilter type="content" createTime="{{msgData.messageBody.createTime}}"></timeFilter>
+		</view>
+		<view class="text-s">
+			<view class="information">
+				<view class="type-info" wx:if="{{infoType === '系统通知：'}}">
+					<text class="iconfont iconxiaoxi text-blue"></text>
+					<text >系统通知：</text>
+				</view>
+				<view class="type-info" wx:else>
+					<text class="iconfont iconkefuzuoxi text-org"></text>
+					<text>客服操作：</text>
+				</view>
+				<infoContent color="#177ee5" item="{{msgData}}"></infoContent>
+			</view>
+		</view>
+		<view class="map" wx:if="{{msgData.messageBody.msgType === 'WX_EVEN_LOCATION'}}">
+			<view class="map-title">
+				<view class="header">{{simpleName}}</view>
+				<view class="location">{{detailName}}</view>
+			</view>
+			<map
+					class="map-block"
+					id="{{msgData.messageBody.msgId}}"
+					latitude="{{latitude}}"
+					longitude="{{longitude}}"
+					show-location
+					bindtap="goBigMap"
+					markers="{{markers}}"
+				></map>
+		</view>
+	</view>
+
+	<!-- 客服操作 -->
+	<!-- <view class="flex-col">
+		<view class="text-s">
+			昨天 13:30:55
+		</view>
+		<view class="text-s">
+			<text class="iconfont iconkefuzuoxi text-org"></text>客服操作：你更改了粉丝姓名
+		</view>
+	</view> -->
+
+	<!-- 地图 -->
+	<!-- <view class="flex-col">
+		<view class="text-s">
+			昨天 13:30:55
+		</view>
+		<view class="text-s long-text" bindtap="showDetail">
+			<text class="iconfont iconxiaoxi text-blue"></text>
+			<text>系统通知：获取粉丝位置【</text>
+			<text>浙江省杭州市拱墅区胜利...</text>
+			<text><text class="text-blue">点击查看</text>】</text>
+		</view>
+		<view bindtap="showDetail">
+			<view class="map">
+				<view class="map-title">
+					<view class="header">海外海德胜大厦</view>
+					<view class="location">浙江省杭州市拱墅区德胜路195号</view>
+				</view>
+			</view>
+		</view>
+	</view> -->
+
+	<!-- 客服操作 -->
+	<!-- <view class="flex-col">
+		<view class="text-s">
+			昨天 13:30:55
+		</view>
+		<view class="text-s">
+			<text class="iconfont iconkefuzuoxi text-org"></text>客服操作：你将粉丝所属分组从<text class="text-blue">【普通】</text>改为<text class="text-blue">【重要】</text>
+		</view>
+	</view> -->
+</view>
+
